@@ -954,6 +954,13 @@ section,
   font-size: 14px;
 }
 
+.get-started .col-lg-5 img{
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+
 .get-started .php-email-form {
   background: color-mix(in srgb, var(--default-color), transparent 97%);
   padding: 30px;
