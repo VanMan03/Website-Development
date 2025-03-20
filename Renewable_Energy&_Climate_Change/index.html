@@ -52,13 +52,15 @@
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="climate-change.html">Renewable Energy & Climate Change</li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="climate-change.html">Content</li>
+          <li><a href="projects.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+
+      
     </div>
   </header>
 
@@ -73,7 +75,11 @@
             <div class="col-lg-6 text-center">
               <h2>Clean Energy, Clean Future</h2>
               <p><i>Track your carbon footprint, explore solar, wind, hydro, and geothermal solutions, and stay informed with real-time climate data. </i></p>
-              <a href="#get-started" class="btn-get-started">Get Started</a>
+              
+
+              
+
+              
             </div>
           </div>
         </div>
@@ -119,6 +125,58 @@
       <div class="container">
 
         <div class="row justify-content-between gy-4">
+
+          <div class="container mt-5">
+            <h2 class="text-center">Ask philiphiKNOW</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="searchQuery" class="form-control" placeholder="Ask About Renewable Energy and Climate Change...">
+                <button class="btn btn-primary" onclick="searchGemini()">Ask</button>
+            </div>
+            <div id="result" class="alert alert-info" style="display: none;"></div>
+          </div><br><br><br><br>
+          
+          <script>
+          async function searchGemini() {
+            const query = document.getElementById("searchQuery").value;
+            const resultDiv = document.getElementById("result");
+          
+            if (!query) {
+                resultDiv.innerHTML = "❌ Please enter a question.";
+                resultDiv.style.display = "block";
+                return;
+            }
+          
+            const apiKey = "AIzaSyBZ5MjjeGsVg7uG34PsY-JUq5xXdgZzGps"; 
+            const model = "gemini-1.5-flash"; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+          
+            try {
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: query }] }]
+                    })
+                });
+          
+                const data = await response.json();
+                console.log("API Response:", data);
+          
+                if (data.error) {
+                    resultDiv.innerHTML = `❌ Error: ${data.error.message}`;
+                } else {
+                    resultDiv.innerHTML = `✅ Response: ${data.candidates[0].content.parts[0].text}`;
+                }
+                resultDiv.style.display = "block";
+            } catch (error) {
+                console.error("Error:", error);
+                resultDiv.innerHTML = "❌ Something went wrong. Please check your API key and try again.";
+                resultDiv.style.display = "block";
+            }
+          }
+          </script>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             <div class="content">
@@ -252,7 +310,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon">
-                <img src="assets/img/solar-panel.png" width="150%">
+                <img src="assets/img/wind-turbine.png" width="150%">
               </div>
               <h3>Wind Energy</h3>
               <p>Wind energy is the energy in moving air that can be converted into electricity or mechanical power. It's a renewable energy source that doesn't pollute the air. 
@@ -321,7 +379,7 @@
       <div class="container">
 
         <div class="row justify-content-around gy-4">
-          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/construction1.jpeg" height="40%" alt=""></div>
+          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/wind-turbine2.jpg" height="40%" alt=""></div>
 
           <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <h3>The Importance Of Renewable Energy</h3>
@@ -339,7 +397,7 @@
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <img src="assets/img/energy-saving.png" width="35%" height="35%">
+              <img src="assets/img/energy-saving.png" width="30%" height="30%">
                 <div style="margin: 20px;">
                 <h4><a href="" class="stretched-link">Energy security</a></h4>
                 <p>By relying on locally available renewable resources,
@@ -357,7 +415,7 @@
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
-              <img src="assets/img/benefits.png" width="30%" height="30%">
+              <img src="assets/img/benefits.png" width="20%" height="30%">
                 <div style="margin: 20px;">
                 <h4><a href="" class="stretched-link">Public Health Benefit</a></h4>
                 <p>Reducing air pollution from fossil fuel combustion can lead to improved public health outcomes. </p>
@@ -440,7 +498,7 @@
                   <li><i class="bi bi-check2-all"></i> <span>Geothermal energy is a sustainable and inexhaustible resource.</span></li>
                   <li><i class="bi bi-check2-all"></i> <span>Produces minimal greenhouse gas emissions compared to fossil fuels.</span></li>
                   <li><i class="bi bi-check2-all"></i> <span>Provides a stable and constant energy source, unaffected by weather conditions.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span></span></li>
+                  
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -524,7 +582,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
+        <h2>Gallery</h2>
         <p>Our renewable energy project harnesses solar, wind, and hydro power to create sustainable electricity, reduce carbon emissions, and promote a cleaner, greener future</p>
       </div><!-- End Section Title -->
 
@@ -534,34 +592,28 @@
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-remodeling">Remodeling</li>
-            <li data-filter=".filter-construction">Construction</li>
-            <li data-filter=".filter-repairs">Repairs</li>
-            <li data-filter=".filter-design">Design</li>
+            <li data-filter=".filter-remodeling">Solar</li>
+            <li data-filter=".filter-construction">Wind</li>
+            <li data-filter=".filter-repairs">Hydropower</li>
+            <li data-filter=".filter-design">Geothermal</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/01.jpg" class="img-fluid" alt="">
+                <img src="assets/img/Solar1.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>SOLAR PANELS</h4>
-                  <p>LINE 549</p>
-                  <a href="assets/img/01.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>SOLAR</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/02.jpg" class="img-fluid" alt="">
+                <img src="assets/img/wind3.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4> SOLAR PANELS</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/02.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>WIND</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -571,69 +623,51 @@
                 <img src="assets/img/03.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>HYDRO</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/03.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/04.jpg" class="img-fluid" alt="">
+                <img src="assets/img/geothermal-plant.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>HYDRO</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/04.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>GEOTHERMAL</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/05.jpg" class="img-fluid" alt="">
+                <img src="assets/img/Solar2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>GEOTHERMAL</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/05.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>SOLAR</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/geothermal-plant.jpg" class="img-fluid" alt="">
+                <img src="assets/img/wind1.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>GEOETHERMAL</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/geothermal-plant.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>WIND</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-repairs">
               <div class="portfolio-content h-100">
-                <img src="assets/img/Goulburn-Bioenergy-Project-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/04.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>BIO</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/Goulburn-Bioenergy-Project-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>HYDRO</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/wind3.jpg" class="img-fluid" alt="">
+                <img src="assets/img/geo2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>LINE 632</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/new1.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>GEOTHERMAL</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -642,46 +676,34 @@
               <div class="portfolio-content h-100">
                 <img src="assets/img/new2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>SOLAR PANELS</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/new3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>SOLAR</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/hydro.jpg" class="img-fluid" alt="">
+                <img src="assets/img/wind2.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>HYDRO</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/hydro99.jpeg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>WIND</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-repairs">
               <div class="portfolio-content h-100">
-                <img src="assets/img/tydal1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/hydro3.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>TIDAL</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/tydal2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>HYDRO</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/wind1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/geo3.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>WINDMILLS</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/wind1.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <h4>GEOTHERMAL</h4>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -739,66 +761,37 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">UpConstruction</span>
+            <span class="sitename">Renewable Energy & Climate Change</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <p>T. De Castro Street</p>
+            <p>Bulan, 4706 Sorsogon</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+639083647298</span></p>
+            <p><strong>Email:</strong> <span>ourTeam.gmail.com</span></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Our Website</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="climate-change.html">Content</a></li>
+            <li><a href="projects.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Our Features</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="climate-change.html#cf-tracker">Carbon Footprint Tracker</a></li>
+            <li><a href="climate-change.html#live-data">Live Renewable Energy Data</a></li>
+            <li><a href="climate-change.html#re-dashboard">Renewable Energy Dashboard</a></li>
+            <li><a href="climate-change.html#cf-calc">Carbon Footprint Calculator</a></li>
+            <li><a href="climate-change.html#usage-map">Live Renewable Energy Usage Map</a></li>
           </ul>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
       </div>
     </div>
 

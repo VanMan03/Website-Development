@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Climate Change - UpConstruction Bootstrap Template</title>
+  <title>Content - Renewable Energy and Climate Change</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/renewable-energy.png" rel="icon">
+  <link href="assets/img/renewable-energy.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -52,9 +52,8 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="climate-change.html" class="active">Renewable Energy & Climate Change</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          
+          <li><a href="climate-change.html" class="active">Content</a></li>
+          <li><a href="projects.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -68,11 +67,11 @@
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: url(assets/img/The-Vital-Role-of-Renewable-Energy-in-Combating-Climate-Change.jpg);">
       <div class="container position-relative">
-        <h1>Renewable Energy & Climate Change</h1>
+        <h1>Content</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Renewable Energy & Climate Change</li>
+            <li class="current">Content</li>
           </ol>
         </nav>
       </div>
@@ -94,7 +93,6 @@
               <p> // Design, supply, and installation of solar photovoltaic (PV) systems <br>
                // Regular maintenance and performance monitoring <br>
                 // Repairs and efficiency upgrades</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -107,7 +105,6 @@
               <p> // Site assessment and feasibility studies for wind farms <br>
                  // Installation of wind turbines (onshore & offshore) <br>
                  // Maintenance and operational support</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -120,7 +117,6 @@
               <p>// Battery storage systems for solar and wind energy <br>
                 // Grid-scale energy storage solutions <br>
                 // Smart energy management for homes and businesses</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -133,7 +129,6 @@
               <p> // Design and installation of hydroelectric power plants <br>
                  // Small-scale micro-hydro solutions for rural areas <br>
                 // Turbine maintenance and system optimization</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -146,7 +141,6 @@
               <p> // Biogas and biomass energy production <br>
                  // Waste-to-energy conversion (using organic waste) <br>
                  // Engineering and project management for bioenergy plants</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -159,7 +153,6 @@
               <p> //Renewable energy feasibility studies <br>
                  // Energy efficiency assessments and optimization <br>
                 // Carbon footprint reduction strategies</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -281,8 +274,48 @@
 
           </div>
 
+
+          <div class="container mt-4">
+            <h2 class="text-center">🌍 Renewable Energy Solutions</h2>
+        
+            <div class="row">
+                <!-- Solar Energy -->
+                <div class="col-md-6">
+                    <div class="card p-3 mt-3">
+                        <h4>☀️ Solar Energy</h4>
+                        <p>Solar energy converts sunlight into electricity using photovoltaic (PV) cells. It is one of the most abundant and sustainable energy sources.</p>
+                    </div>
+                </div>
+        
+                <!-- Wind Energy -->
+                <div class="col-md-6">
+                    <div class="card p-3 mt-3">
+                        <h4>💨 Wind Energy</h4>
+                        <p>Wind turbines generate electricity by harnessing the kinetic energy of wind. It is an efficient and growing renewable energy source.</p>
+                    </div>
+                </div>
+        
+                <!-- Hydro Energy -->
+                <div class="col-md-6">
+                    <div class="card p-3 mt-3">
+                        <h4>💧 Hydro Energy</h4>
+                        <p>Hydropower generates electricity by utilizing the movement of water through dams and rivers. It is one of the oldest renewable energy sources.</p>
+                    </div>
+                </div>
+        
+                <!-- Geothermal Energy -->
+                <div class="col-md-6">
+                    <div class="card p-3 mt-3">
+                        <h4>🌋 Geothermal Energy</h4>
+                        <p>Geothermal energy taps into the Earth's internal heat to generate electricity and provide direct heating for homes and industries.</p>
+                    </div>
+                </div>
+            </div>
+        
+          </div>
+
           <div class="features-image col-lg-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/solar-climate-change.jpg" alt="">
+            <img src="assets/img/renewable-source-of-energy.jpg" alt="">
           </div>
 
         </div>
@@ -322,6 +355,121 @@
               }
             }
           </script>
+
+          <script>
+            // Carbon Footprint Calculator
+            function calculateCarbon() {
+                let energy = document.getElementById("energyInput").value;
+                if (!energy) {
+                    document.getElementById("carbonResult").innerHTML = "❌ Please enter a valid number.";
+                    return;
+                }
+                let carbonEmission = energy * 0.85; // Approximate CO2 emissions per kWh
+                document.getElementById("carbonResult").innerHTML = `🌱 Your estimated carbon footprint: ${carbonEmission.toFixed(2)} kg CO₂`;
+            }
+            
+            </script>
+
+
+
+  
+  
+  <div class="container mt-4">
+    <h3 id="cf-tracker">♻️ Carbon Footprint Tracker</h3>
+    <input type="number" id="energyInput" class="form-control" placeholder="Enter kWh">
+    <button class="btn btn-primary mt-2" onclick="calculateCarbon()">Calculate</button>
+    <p id="carbonResult"></p>
+    
+    <h2 id="live-data">🌍 Live Renewable Energy Data</h2>
+<button onclick="fetchEnergyStats()">🔄 Get Energy Data</button>
+<p id="energyData">Waiting for data...</p>
+
+<script>
+async function fetchEnergyStats() {
+    const apiUrl = "https://api.eia.gov/v2/electricity/renewable-consumption/data/?api_key=GvQiOp5dN9CjA6hx3hgIn2pozBzgQVxRSEkhxSvS";
+
+    try {
+        let response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let data = await response.json();
+
+        console.log(data); // Debugging: Ipakita ang raw data sa console
+
+        if (data.response && data.response.data.length > 0) {
+            document.getElementById("energyData").innerHTML = 
+                `⚡ Global Renewable Energy Usage: ${data.response.data[0].value} GWh`;
+        } else {
+            document.getElementById("energyData").innerHTML = "⚠️ No data available.";
+        }
+    } catch (error) {
+        document.getElementById("energyData").innerHTML = "❌ Error fetching renewable energy data.";
+        console.error("Fetch Error:", error);
+    }
+}
+</script>
+  </div>
+
+
+        
+
+        <div class="container mt-4">
+          <h2 class="text-center" id="re-dashboard">🌍 Renewable Energy Dashboard</h2>
+          
+          <!-- Carbon Footprint Calculator -->
+          <div class="card p-3 mt-3" id="cf-calc">
+              <h4>♻️ Carbon Footprint Calculator</h4>
+              <label>Enter Your Energy Consumption (kWh):</label>
+              <input type="number" id="energyInput" class="form-control" placeholder="Enter kWh">
+              <button class="btn btn-primary mt-2" onclick="calculateCarbon()">Calculate</button>
+              <p id="carbonResult" class="mt-2"></p>
+          </div>
+      
+          <!-- Renewable Energy Live Map (Placeholder) -->
+          <div class="card p-3 mt-3" id="usage-map">
+              <h4>📍 Live Renewable Energy Usage Map</h4>
+              <iframe src="https://www.globalenergyobservatory.org/" width="100%" height="400px"></iframe>
+          </div>
+      
+          <!-- Global Climate Change Data -->
+          <div class="card p-3 mt-3" id="cm-data">
+              <h4>🌡️ Global Climate Change Data</h4>
+              <button class="btn btn-warning" onclick="fetchClimateData()">Load Climate Data</button>
+              <p id="climateData" class="mt-2"></p>
+          </div>
+      </div>
+      
+      <script>
+      // Carbon Footprint Calculator
+      function calculateCarbon() {
+          let energy = document.getElementById("energyInput").value;
+          if (!energy) {
+              document.getElementById("carbonResult").innerHTML = "❌ Please enter a valid number.";
+              return;
+          }
+          let carbonEmission = energy * 0.85; // Approximate CO2 emissions per kWh
+          document.getElementById("carbonResult").innerHTML = `🌱 Your estimated carbon footprint: ${carbonEmission.toFixed(2)} kg CO₂`;
+      }
+      
+      // Fetch Climate Change Data
+      async function fetchClimateData() {
+          const apiUrl = "https://api.open-meteo.com/v1/climate?latitude=0&longitude=0&variable=temperature_anomaly&start=2020&end=2023";
+          
+          try {
+              let response = await fetch(apiUrl);
+              let data = await response.json();
+              document.getElementById("climateData").innerHTML = `🌡️ Average Global Temperature Anomaly: ${data.temperature_anomaly}°C`;
+          } catch (error) {
+              document.getElementById("climateData").innerHTML = "❌ Error fetching climate data.";
+          }
+      }
+      </script>
+
+
+        
+
+        
           
 
   </main>
@@ -332,66 +480,37 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">UpConstruction</span>
+            <span class="sitename">Renewable Energy & Climate Change</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <p>T. De Castro Street</p>
+            <p>Bulan, 4706 Sorsogon</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+639083647298</span></p>
+            <p><strong>Email:</strong> <span>ourTeam.gmail.com</span></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Our Website</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Content</a></li>
+            <li><a href="projects.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Our Features</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="climate-change.html#cf-tracker">Carbon Footprint Tracker</a></li>
+            <li><a href="climate-change.html#live-data">Live Renewable Energy Data</a></li>
+            <li><a href="climate-change.html#re-dashboard">Renewable Energy Dashboard</a></li>
+            <li><a href="climate-change.html#cf-calc">Carbon Footprint Calculator</a></li>
+            <li><a href="climate-change.html#usage-map">Live Renewable Energy Usage Map</a></li>
           </ul>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
       </div>
     </div>
 
