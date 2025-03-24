@@ -76,6 +76,57 @@
               <h2>Clean Energy, Clean Future</h2>
               <p><i>Track your carbon footprint, explore solar, wind, hydro, and geothermal solutions, and stay informed with real-time climate data. </i></p>
               
+              <div class="container mt-5">
+                <h2 class="text-center">Ask philiphiKNOW</h2>
+                <div class="input-group mb-3">
+                    <input type="text" id="searchQuery" class="form-control" placeholder="Ask About Renewable Energy and Climate Change...">
+                    <button class="btn btn-primary" onclick="searchGemini()">Ask</button>
+                </div>
+                <div id="result" class="alert alert-info" style="display: none;"></div>
+              </div><br><br><br><br>
+              
+              <script>
+              async function searchGemini() {
+                const query = document.getElementById("searchQuery").value;
+                const resultDiv = document.getElementById("result");
+              
+                if (!query) {
+                    resultDiv.innerHTML = "❌ Please enter a question.";
+                    resultDiv.style.display = "block";
+                    return;
+                }
+              
+                const apiKey = "AIzaSyBZ5MjjeGsVg7uG34PsY-JUq5xXdgZzGps"; 
+                const model = "gemini-1.5-flash"; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+              
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: query }] }]
+                        })
+                    });
+              
+                    const data = await response.json();
+                    console.log("API Response:", data);
+              
+                    if (data.error) {
+                        resultDiv.innerHTML = `❌ Error: ${data.error.message}`;
+                    } else {
+                        resultDiv.innerHTML = `✅ Response: ${data.candidates[0].content.parts[0].text}`;
+                    }
+                    resultDiv.style.display = "block";
+                } catch (error) {
+                    console.error("Error:", error);
+                    resultDiv.innerHTML = "❌ Something went wrong. Please check your internet and try again.";
+                    resultDiv.style.display = "block";
+                }
+              }
+              </script>
 
               
 
@@ -125,59 +176,6 @@
       <div class="container">
 
         <div class="row justify-content-between gy-4">
-
-          <div class="container mt-5">
-            <h2 class="text-center">Ask philiphiKNOW</h2>
-            <div class="input-group mb-3">
-                <input type="text" id="searchQuery" class="form-control" placeholder="Ask About Renewable Energy and Climate Change...">
-                <button class="btn btn-primary" onclick="searchGemini()">Ask</button>
-            </div>
-            <div id="result" class="alert alert-info" style="display: none;"></div>
-          </div><br><br><br><br>
-          
-          <script>
-          async function searchGemini() {
-            const query = document.getElementById("searchQuery").value;
-            const resultDiv = document.getElementById("result");
-          
-            if (!query) {
-                resultDiv.innerHTML = "❌ Please enter a question.";
-                resultDiv.style.display = "block";
-                return;
-            }
-          
-            const apiKey = "AIzaSyBZ5MjjeGsVg7uG34PsY-JUq5xXdgZzGps"; 
-            const model = "gemini-1.5-flash"; 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-          
-            try {
-                const response = await fetch(apiUrl, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: query }] }]
-                    })
-                });
-          
-                const data = await response.json();
-                console.log("API Response:", data);
-          
-                if (data.error) {
-                    resultDiv.innerHTML = `❌ Error: ${data.error.message}`;
-                } else {
-                    resultDiv.innerHTML = `✅ Response: ${data.candidates[0].content.parts[0].text}`;
-                }
-                resultDiv.style.display = "block";
-            } catch (error) {
-                console.error("Error:", error);
-                resultDiv.innerHTML = "❌ Something went wrong. Please check your API key and try again.";
-                resultDiv.style.display = "block";
-            }
-          }
-          </script>
-
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             <div class="content">
               <h3>Join the Renewable Revolution</h3>
